@@ -13,7 +13,7 @@ def log_function(message: str):
 l2d.csmSetLogFunction(ctypes.WINFUNCTYPE(None, ctypes.c_char_p)(log_function))
 
 # 加载 moc3 文件到内存中
-with open(r'符玄\符玄.moc3', 'rb') as f:
+with open(r'F:\python_play\Live2d\Live2DPythonBound\符玄\符玄.moc3', 'rb') as f:
     moc_data = f.read()
 
 # 将 MOC 文件数据复制到 ctypes 数组中
