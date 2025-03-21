@@ -224,7 +224,7 @@ class Live2DCubismCore:
     
     def csmGetDrawableCount(self, model: csmModelPtr) -> ctypes.c_int:
         """
-        Gets the number of drawables in the model.
+        Gets the number of drawable(s) in the model.
         - model: Model to query.
         - return: Valid count on success; '-1' otherwise.
         """
@@ -370,7 +370,7 @@ class Live2DCubismCore:
     
     def csmResetDrawableDynamicFlags(self, model: csmModelPtr) -> None:
         """
-        Resets the dynamic flags for all drawables.
+        Resets the dynamic flags for all drawable(s).
         - model: Model to modify.
         - return: None.
         """
