@@ -1,5 +1,6 @@
 """ 根据live2dCubismCore.h头文件，封装了Live2D模型的相关数据结构。"""
 import ctypes
+from enum import IntEnum
 import sys
 
 # Cubism moc.
@@ -52,12 +53,14 @@ typedef unsigned char csmFlags;
 ```
 """
 
-csmMocVersion_Unknown = 0
-csmMocVersion_30 = 1
-csmMocVersion_33 = 2
-csmMocVersion_40 = 3
-csmMocVersion_42 = 4
-csmMocVersion_50 = 5
+class csmMocVersions(IntEnum):
+    """ moc文件版本号。"""
+    csmMocVersion_Unknown = 0
+    csmMocVersion_30 = 1
+    csmMocVersion_33 = 2
+    csmMocVersion_40 = 3
+    csmMocVersion_42 = 4
+    csmMocVersion_50 = 5
 
 csmMocVersion = ctypes.c_uint
 """
@@ -67,8 +70,10 @@ Live2D模型文件的版本号。
 typedef unsigned int csmMocVersion;
 ```
 """
-csmParameterType_Normal = 0
-csmParameterType_BlendShape = 1
+class csmParameterTypes(IntEnum):
+    """ Live2D模型参数类型。"""
+    csmParameterType_Normal = 0
+    csmParameterType_BlendShape = 1
 
 csmParameterType = ctypes.c_int
 """
@@ -120,22 +125,7 @@ class csmVector4(ctypes.Structure):
 
     def __str__(self) -> str:
         return f"csmVector4(x={self.x}, y={self.y}, z={self.z}, w={self.w})"
-    
-"""
-日志输出函数类型。
-源代码如下:
-```c++
-typedef void (*csmLogFunction)(const char* message);
-```
-"""
 
-"""
-#if CSM_CORE_WIN32_DLL
-#define csmCallingConvention __stdcall
-#else
-#define csmCallingConvention
-#endif
-"""
 if sys.platform == 'win32':
     csmCallingConvention = ctypes.WINFUNCTYPE
 else:
