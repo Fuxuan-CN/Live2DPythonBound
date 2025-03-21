@@ -1,4 +1,4 @@
-""" Wrapper for the Live2D Cubism Core dll. """
+""" Live2D Cubism Core dll 装饰器 """
 
 import ctypes
 from pathlib import Path

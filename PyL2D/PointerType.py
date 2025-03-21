@@ -1,4 +1,4 @@
-
+""" 指针类型注解定义 """
 import ctypes
 from typing import Type
 from ctypes import POINTER
