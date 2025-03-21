@@ -6,6 +6,12 @@ import ctypes
 # 实例化 DLL 包装器
 l2d = Live2DCubismCore()
 
+# my log
+def log_function(message: str):
+    print(f"Log: {message.decode('utf-8')}")
+
+l2d.csmSetLogFunction(ctypes.WINFUNCTYPE(None, ctypes.c_char_p)(log_function))
+
 # 加载 moc3 文件到内存中
 with open(r'符玄\符玄.moc3', 'rb') as f:
     moc_data = f.read()
